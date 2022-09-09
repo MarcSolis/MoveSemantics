@@ -1,0 +1,3 @@
+﻿  String.cpp
+F:\Repositories\Testing\MoveSemantics\MoveSemantics\String.cpp(19,9): error C2382: 'String::String': redefinition; different exception specifications
+F:\Repositories\Testing\MoveSemantics\MoveSemantics\String.h(15): message : see declaration of 'String::String'
