@@ -39,3 +39,20 @@ void Entity2::PrintName()
 	name.Print();
 }
 #pragma endregion
+
+
+#pragma region Entity3
+Entity3::Entity3(const Integer& number) : number(number)
+{
+}
+
+Entity3::Entity3(Integer&& number) : number(std::move(number))
+{
+}
+
+void Entity3::PrintName()
+{
+	printf("number: ");
+	number.Print();
+}
+#pragma endregion

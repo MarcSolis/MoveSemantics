@@ -1,5 +1,6 @@
 #pragma once
 #include "String.h"
+#include "Integer.h"
 
 // Construction by COPY
 class Entity0
@@ -39,4 +40,18 @@ public:
 
 private:
 	String name;
+};
+
+// Construction by MOVE
+class Entity3
+{
+public:
+	Entity3(const Integer& name);
+
+	Entity3(Integer&& name);
+
+	void PrintName();
+
+private:
+	Integer number;
 };

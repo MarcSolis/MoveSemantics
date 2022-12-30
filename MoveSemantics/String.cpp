@@ -1,8 +1,15 @@
 #include "String.h"
 
+#if DEBUGGING == 1
+	#define PRINT(x) printf(x)
+#else
+	#define PRINT(x)
+#endif
+
 String::String(const char* string)
 {
-	printf("CREATED\n");
+
+	PRINT("CREATED\n");
 	size = strlen(string);
 	data = new char[size];
 	memcpy(data, string, size);
@@ -10,7 +17,7 @@ String::String(const char* string)
 
 String::String(const String& other)
 {
-	printf("COPIED\n");
+	PRINT("COPIED\n");
 	size = other.size;
 	data = new char[size];
 	memcpy(data, other.data, size);
@@ -18,7 +25,7 @@ String::String(const String& other)
 
 String::String(String&& other) noexcept
 {
-	printf("MOVED\n");
+	PRINT("MOVED\n");
 	size = other.size;
 	data = other.data;
 	
@@ -38,13 +45,13 @@ void String::Print()
 
 String::~String()
 {
-	printf("DELETED\n");
+	PRINT("DELETED\n");
 	delete[] data;
 }
 
 String& String::operator=(const String& other) noexcept
 {
-	printf("COPY operator\n");
+	PRINT("COPY operator\n");
 	if (this == &other)
 	{
 		return *this;
@@ -59,7 +66,7 @@ String& String::operator=(const String& other) noexcept
 
 String& String::operator=(String&& other) noexcept
 {
-	printf("MOVE operator\n");
+	PRINT("MOVE operator\n");
 	if (this == &other)
 	{
 		return *this;

@@ -7,11 +7,8 @@ class String
 {
 public:
 	String() = default;
-
 	String(const char* string);
-
 	String(const String& other);
-
 	String(String&& other) noexcept;
 
 	void Print();

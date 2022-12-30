@@ -1,0 +1,17 @@
+﻿  Allocator.cpp
+  Entity.cpp
+  Integer.cpp
+  main.cpp
+  String.cpp
+  Timer.cpp
+F:\Repositories\Testing\MoveSemantics\MoveSemantics\Timer.cpp(22,20): warning C4244: '*=': conversion from 'double' to '_Rep', possible loss of data
+          with
+          [
+              _Rep=__int64
+          ]
+  Generating code
+  16 of 50 functions (32.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  MoveSemantics.vcxproj -> F:\Repositories\Testing\MoveSemantics\Release\MoveSemantics.exe

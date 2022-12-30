@@ -1,5 +1,30 @@
 // Written by Marc Solis (2022)
+#include <iostream>
 #include "Entity.h"
+
+
+#define BENCHMARKING 1
+
+#if BENCHMARKING == 1
+	#include "Timer.h"
+	#include "Allocator.h"
+
+	static int allocations;
+
+	#define TIMING(x) Timer timer(x)
+	#define ALLOCATIONS Allocator allocator(&allocations)
+
+	void* operator new(size_t size) {
+		allocations++;
+		return malloc(size);	
+	}
+
+	
+#else
+	#define TIMING(x)
+	#define ALLOCATIONS
+#endif
+
 
 #pragma region Entity0
 // Bad. Creation + copy + copy = 3 heap allocations
@@ -106,11 +131,20 @@ void AssignationMethod1()
 }
 #pragma endregion
 
+
 int main()
 {
-	ContructionMethod6();
+	{
+		ALLOCATIONS;
+		TIMING(true);
+		ContructionMethod0();
+	}
 	printf("\n-----------------------\n\n");
-	AssignationMethod0();
+	{
+		ALLOCATIONS;
+		TIMING(true);
+		ContructionMethod6();
+	}
 
-	return 0;
+	std::cin.get();
 }
